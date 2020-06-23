@@ -4,12 +4,10 @@ class Scenario {
     this.speed = speed;
     this.x1 = 0;
     this.x2 = width;
-    
   }
   
-  exibe() {
+  show() {
     image(this.image, this.x1, 0, width, height);
-  // circle(0, 0, 200);
     image(this.image, this.x2, 0, width, height);
   }
   

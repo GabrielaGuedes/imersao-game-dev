@@ -22,12 +22,12 @@ class Character {
     this.currentFrame = 0;
   }
   
-  exibe(){
+  show(){
       image(this.image, 0, height-135, 110, 135, this.matrix[this.currentFrame][0], this.matrix[this.currentFrame][1], 220, 270); // image, coordenadas da posição inicial (x, y), width, height, coordenadas interna da image, width e height interno da image
-    this.anima();
+    this.animate();
   }
   
-  anima(){
+  animate(){
     this.currentFrame++;
     
     if(this.currentFrame >= this.matrix.length){

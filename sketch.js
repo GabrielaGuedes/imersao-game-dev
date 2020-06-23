@@ -19,9 +19,9 @@ function setup() {
 }
 
 function draw() {
-  scenario.exibe();
+  scenario.show();
   scenario.move();
-  character.exibe();
+  character.show();
  
 }
 
