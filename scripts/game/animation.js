@@ -13,7 +13,7 @@ class Animation {
     this.image = image;
     this.width = objectWidth;
     this.height = objectHeight;
-    this.coordinates = {x: x, y: height - this.height};
+    this.coordinates = {x: x, y: height - this.height - GAME_CONSTANTS.floorHeight};
     this.spriteWidth = spriteWidth;
     this.spriteHeight = spriteHeight;
     this.frameColumns = frameColumns;

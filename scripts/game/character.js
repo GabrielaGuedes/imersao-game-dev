@@ -1,4 +1,4 @@
-const JUMP_SIZE = 30;
+const DEFAULT_JUMP_SIZE = 30;
 
 class Character extends Animation {
   constructor(
@@ -22,15 +22,16 @@ class Character extends Animation {
       frameColumns
     );
 
-    this.initialY = height - this.height;
+    this.initialY = height - this.height - GAME_CONSTANTS.floorHeight;
     this.coordinates.y = this.initialY;
     this.jumpSpeed = 0;
+    this.jumpHeight = -DEFAULT_JUMP_SIZE;
     this.recentSingleJump = false;
   }
 
   jump(sound) {
     if (this.canJump()) {
-      this.jumpSpeed = -JUMP_SIZE;
+      this.jumpSpeed = this.jumpHeight;
       this.recentSingleJump = !this.recentSingleJump;
       sound.play();
     }
@@ -54,7 +55,11 @@ class Character extends Animation {
   }
 
   isColliding(enemy) {
+    noFill();
     const precision = GAME_CONSTANTS.precision;
+    rect(this.coordinates.x, this.coordinates.y, this.width*precision, this.height*precision);
+    rect(enemy.coordinates.x, enemy.coordinates.y, enemy.width*precision, enemy.height*precision);
+
     return collideRectRect(this.coordinates.x, this.coordinates.y, this.width*precision, this.height*precision,
       enemy.coordinates.x, enemy.coordinates.y, enemy.width*precision, enemy.height*precision);    
   }
