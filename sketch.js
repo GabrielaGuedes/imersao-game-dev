@@ -35,7 +35,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(GAME_CONSTANTS.frameRate);
-  // gameSound.loop();
+  gameSound.loop();
   scenario = new Scenario(scenarioImage, scenarioSpeed);
   character = new Character(
     CHARACTER_IMAGE_FRAMES, 
