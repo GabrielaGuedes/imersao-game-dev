@@ -15,6 +15,7 @@ const ENEMY_SPEED = 9;
 let scenarioImage;
 let characterImage;
 let enemyImage;
+let gameOverImage;
 let scenario;
 let gameSound;
 let jumpSound;
@@ -26,6 +27,7 @@ function preload() {
   scenarioImage = loadImage(IMAGE_PATHS.forestScenario);
   characterImage = loadImage(IMAGE_PATHS.runningCharacter);
   enemyImage = loadImage(IMAGE_PATHS.littleDropEnemy);
+  gameOverImage = loadImage(IMAGE_PATHS.gameOver);
   gameSound = loadSound(SOUNDS_PATHS.gameTrack);
   jumpSound = loadSound(SOUNDS_PATHS.jump);
 }
@@ -71,6 +73,8 @@ function draw() {
 
   if (character.isColliding(enemy)) {
     noLoop();
+    gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
+    gameOver.display();
   }
 }
 
