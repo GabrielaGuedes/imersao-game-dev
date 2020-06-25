@@ -39,6 +39,7 @@ let jumpSound;
 let character;
 let scenarioSpeed = 5;
 let score;
+let enemySpawner;
 
 const enemies = [];
 
@@ -102,9 +103,9 @@ function setup() {
     500
   );
 
-  // enemies.push(littleDrop, troll, flyingEnemy);
-  enemies.push(troll);
-  enemies.push(littleDrop);
+  enemies.push(littleDrop, troll, flyingEnemy);
+
+  enemySpawner = new EnemySpawner(enemies);
 }
 
 function keyPressed(){
@@ -121,6 +122,7 @@ function draw() {
   character.show();
   character.applyGravity();
 
+  enemySpawner.spawnEnemy();
   enemies.forEach(enemy => {
     enemy.show();
     enemy.move();
