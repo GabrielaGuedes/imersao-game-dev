@@ -5,7 +5,9 @@ const GAME_CONSTANTS = {
   frameRate: 40,
   gameOverImageWidth: 412,
   gameOverImageHeight: 78,
-  floorHeight: 30
+  floorHeight: 15,
+  scoreMarginLeft: 30,
+  scoreMarginTop: 50
 }
 
 const IMAGE_PATHS = {
@@ -20,4 +22,8 @@ const IMAGE_PATHS = {
 const SOUNDS_PATHS = {
   gameTrack: 'sounds/game_track.mp3',
   jump: 'sounds/jump_sound.mp3'
+}
+
+const COLORS = {
+  white: '#fff'
 }

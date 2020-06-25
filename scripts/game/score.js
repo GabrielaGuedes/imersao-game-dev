@@ -5,9 +5,9 @@ class Score {
 
   show() {
     textAlign(RIGHT);
-    fill('#fff');
+    fill(COLORS.white);
     textSize(50);
-    text(parseInt(this.score), width -30, 50);
+    text(parseInt(this.score), width - GAME_CONSTANTS.scoreMarginLeft, GAME_CONSTANTS.scoreMarginTop);
   }
 
   incrementScore() {

@@ -38,10 +38,29 @@ class Animation {
   calculateMatrix() {
     this.matrix = [];
     for (let i = 0; i < this.imageFrames; i++) {
-        this.matrix[i] = [];
-        for (let j = 0; j < 2; j++) {
-            this.matrix[i][j] = j % 2 === 0 ? (i % this.frameColumns) * this.spriteWidth : parseInt(i/this.frameColumns) * this.spriteHeight;
-        }
+      this.matrix[i] = [(i % this.frameColumns) * this.spriteWidth, parseInt(i/this.frameColumns) * this.spriteHeight];
     }
+  }
+
+  
+  polygonFrame() {
+    const adjustedWidth = this.width * GAME_CONSTANTS.precision;
+    const adjustedHeight = this.height * GAME_CONSTANTS.precision;
+
+    const adjustedX = this.coordinates.x + (this.width - adjustedWidth)/2;
+    const adjustedY = this.coordinates.y + (this.height - adjustedHeight)/2;
+
+    const polygonFrame = [];
+
+    polygonFrame[0] = createVector(adjustedX + adjustedWidth/3, adjustedY);
+    polygonFrame[1] = createVector(adjustedX, adjustedY + adjustedHeight/3);
+    polygonFrame[2] = createVector(adjustedX, adjustedY + 2*adjustedHeight/3);
+    polygonFrame[3] = createVector(adjustedX + adjustedWidth/3, adjustedY + adjustedHeight);
+    polygonFrame[4] = createVector(adjustedX + 2*adjustedWidth/3, adjustedY + adjustedHeight);
+    polygonFrame[5] = createVector(adjustedX + adjustedWidth, adjustedY + 2*adjustedHeight/3);
+    polygonFrame[6] = createVector(adjustedX + adjustedWidth, adjustedY + adjustedHeight/3);
+    polygonFrame[7] = createVector(adjustedX + 2*adjustedWidth/3, adjustedY);
+
+    return polygonFrame;
   }
 }

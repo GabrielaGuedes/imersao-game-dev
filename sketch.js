@@ -104,6 +104,7 @@ function setup() {
 
   // enemies.push(littleDrop, troll, flyingEnemy);
   enemies.push(troll);
+  enemies.push(littleDrop);
 }
 
 function keyPressed(){

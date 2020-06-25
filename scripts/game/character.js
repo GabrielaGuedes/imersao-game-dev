@@ -55,12 +55,6 @@ class Character extends Animation {
   }
 
   isColliding(enemy) {
-    noFill();
-    const precision = GAME_CONSTANTS.precision;
-    rect(this.coordinates.x, this.coordinates.y, this.width*precision, this.height*precision);
-    rect(enemy.coordinates.x, enemy.coordinates.y, enemy.width*precision, enemy.height*precision);
-
-    return collideRectRect(this.coordinates.x, this.coordinates.y, this.width*precision, this.height*precision,
-      enemy.coordinates.x, enemy.coordinates.y, enemy.width*precision, enemy.height*precision);    
+    return collidePolyPoly(this.polygonFrame(), enemy.polygonFrame());
   }
 }
