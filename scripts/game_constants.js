@@ -12,11 +12,16 @@ const GAME_CONSTANTS = {
 
 const IMAGE_PATHS = {
   forestScenario: 'images/scenario/forest.png',
+  initialScreen: 'images/assets/initial_screen.png',
   runningCharacter: 'images/character/running.png',
   littleDropEnemy: 'images/enemies/little_drop.png',
   trollEnemy: 'images/enemies/troll.png',
   flyingDropEnemy: 'images/enemies/flying_drop.png',
   gameOver: 'images/assets/game_over.png'
+}
+
+const FONT_PATHS = {
+  initialScreenFont: 'fonts/initial_screen_font.otf'
 }
 
 const SOUNDS_PATHS = {

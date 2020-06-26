@@ -9,7 +9,9 @@ class EnemySpawner {
 
   spawnEnemy() {
     if (this.canSpawn()) {
-      this.randomEnemy().allowedToShow = true;
+      // this.randomEnemy().allowedToShow = true;
+      // this.randomEnemy().show();
+      return this.randomEnemy();
     }
   }
 
