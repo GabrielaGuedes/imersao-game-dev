@@ -7,6 +7,7 @@ function preload() {
   trollImage = loadImage(IMAGE_PATHS.trollEnemy);
   flyingEnemyImage = loadImage(IMAGE_PATHS.flyingDropEnemy);
   gameOverImage = loadImage(IMAGE_PATHS.gameOver);
+  heartImage = loadImage(IMAGE_PATHS.heart);
   gameSound = loadSound(SOUNDS_PATHS.gameTrack);
   jumpSound = loadSound(SOUNDS_PATHS.jump);
 }

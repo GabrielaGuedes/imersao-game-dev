@@ -1,11 +1,26 @@
 class Game {
   constructor() {
-    this.currentEnemy = 0;
+    this.currentIndex = 0;
+    this.map = [
+      {
+        enemy: 0,
+        speed: 10
+      },
+      {
+        enemy: 1,
+        speed: 30
+      },
+      {
+        enemy: 2,
+        speed: 40
+      }
+    ]
   }
 
   setup() {
     scenario = new Scenario(scenarioImage, scenarioSpeed);
     score = new Score();
+    life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
     character = new Character(
       CHARACTER_IMAGE_FRAMES, 
       characterImage, 
@@ -23,8 +38,7 @@ class Game {
       LITTLE_DROP_SPRITE_WIDTH, 
       LITTLE_DROP_SPRITE_HEIGHT, 
       LITTLE_DROP_IMAGE_FRAMES_COLUMNS,
-      LITTLE_DROP_SPEED,
-      300);
+      LITTLE_DROP_SPEED);
     const troll = new Enemy(
       TROLL_IMAGE_FRAMES, 
       trollImage, 
@@ -33,8 +47,7 @@ class Game {
       TROLL_SPRITE_WIDTH, 
       TROLL_SPRITE_HEIGHT, 
       TROLL_IMAGE_FRAMES_COLUMNS,
-      TROLL_SPEED,
-      500
+      TROLL_SPEED
     );
     const flyingEnemy = new Enemy(
       FLYING_ENEMY_IMAGE_FRAMES, 
@@ -44,8 +57,7 @@ class Game {
       FLYING_ENEMY_SPRITE_WIDTH, 
       FLYING_ENEMY_SPRITE_HEIGHT, 
       FLYING_ENEMY_IMAGE_FRAMES_COLUMNS,
-      FLYING_ENEMY_SPEED,
-      500
+      FLYING_ENEMY_SPEED
     );
 
     enemies.push(littleDrop, troll, flyingEnemy);
@@ -66,6 +78,7 @@ class Game {
     score.incrementScore();
     character.show();
     character.applyGravity();
+    life.draw();
   
     // if (enemySpawner.spawnEnemy()) {
     //   enemyToBorn = enemySpawner.spawnEnemy();
@@ -75,22 +88,29 @@ class Game {
     //   enemyToBorn.move();
     // }
   
-    const enemy = enemies[this.currentEnemy];
+    const currentLine = this.map[this.currentIndex];
+    const enemy = enemies[currentLine.enemy];
     const visibleEnemy = enemy.coordinates.x < - enemy.width;
+    enemy.speed = currentLine.speed;
     
     enemy.show();
     enemy.move();
   
     if (visibleEnemy) {
-      this.currentEnemy++;
-      if(this.currentEnemy >= enemies.length) {
-        this.currentEnemy = 0;
+      this.currentIndex++;
+      enemy.appear();
+      if(this.currentIndex >= this.map.length) {
+        this.currentIndex = 0;
       }
-      enemy.speed = parseInt(random(10,30));
     }
     
   
     if (character.isColliding(enemy)) {
+      life.lostLife();
+      character.becomeTemporallyInvencible();
+    }
+
+    if(life.lifes === 0) {
       noLoop();
       gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
       gameOver.display();

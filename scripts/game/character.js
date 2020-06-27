@@ -27,6 +27,7 @@ class Character extends Animation {
     this.jumpSpeed = 0;
     this.jumpHeight = -DEFAULT_JUMP_SIZE;
     this.recentSingleJump = false;
+    this.isInvencible = false;
   }
 
   jump(sound) {
@@ -62,6 +63,15 @@ class Character extends Animation {
   }
 
   isColliding(enemy) {
-    return collidePolyPoly(this.polygonFrame(), enemy.polygonFrame());
+    if (!this.isInvencible) {
+      return collidePolyPoly(this.polygonFrame(), enemy.polygonFrame());
+    }
+  }
+
+  becomeTemporallyInvencible(){
+    this.isInvencible = true;
+    setTimeout(() => { 
+      this.isInvencible = false
+    }, 1000)
   }
 }

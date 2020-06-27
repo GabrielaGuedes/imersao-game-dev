@@ -7,8 +7,7 @@ class Enemy extends Animation {
     spriteWidth, 
     spriteHeight, 
     frameColumns, 
-    speed,
-    delay
+    speed
   ) {
     super(
       imageFrames, 
@@ -21,8 +20,7 @@ class Enemy extends Animation {
       frameColumns
     );
     this.speed = speed;
-    this.delay = delay;
-    this.coordinates.x = width + this.delay;
+    this.coordinates.x = width;
   }
 
   show(){
@@ -33,10 +31,10 @@ class Enemy extends Animation {
 
   move() {
     this.coordinates.x -= this.speed;
+  }
 
-    if (this.coordinates.x < - this.width - this.delay) {
-      this.coordinates.x = width;
-    }
+  appear() {
+    this.coordinates.x = width;
   }
 
   isBeingDisplayed() {

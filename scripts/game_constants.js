@@ -7,7 +7,9 @@ const GAME_CONSTANTS = {
   gameOverImageHeight: 78,
   floorHeight: 15,
   scoreMarginLeft: 30,
-  scoreMarginTop: 50
+  scoreMarginTop: 50,
+  totalLife: 3,
+  initialLife: 3
 }
 
 const IMAGE_PATHS = {
@@ -17,7 +19,8 @@ const IMAGE_PATHS = {
   littleDropEnemy: 'images/enemies/little_drop.png',
   trollEnemy: 'images/enemies/troll.png',
   flyingDropEnemy: 'images/enemies/flying_drop.png',
-  gameOver: 'images/assets/game_over.png'
+  gameOver: 'images/assets/game_over.png',
+  heart: 'images/assets/heart.png'
 }
 
 const FONT_PATHS = {
