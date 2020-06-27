@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(windowWidth, windowHeight);
   frameRate(GAME_CONSTANTS.frameRate);
-  // gameSound.loop();
+  gameSound.loop();
 
   game = new Game();
   initialScreen = new InitialScreen();

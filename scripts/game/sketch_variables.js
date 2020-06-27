@@ -45,7 +45,7 @@ let score;
 let enemySpawner;
 let game;
 let gameOver;
-let currentScene = 'game';
+let currentScene = 'initialScreen';
 let initialScreen;
 let managerButton;
 let life;
