@@ -44,8 +44,15 @@ class Character extends Animation {
   applyGravity() {
     this.coordinates.y += this.jumpSpeed;
     this.jumpSpeed += GAME_CONSTANTS.gravity;
-
+    
+    this.resetJump();
     this.useFloorAsLimit();
+  }
+
+  resetJump() {
+    if(this.coordinates.y >= this.initialY) {
+      this.recentSingleJump = false;
+    }
   }
 
   useFloorAsLimit() {
