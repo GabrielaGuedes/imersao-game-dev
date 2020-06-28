@@ -3,10 +3,11 @@ function setup() {
   frameRate(GAME_CONSTANTS.frameRate);
   gameSound.loop();
 
+  const screenManager = new ScreenManager();
   game = new Game();
   initialScreen = new InitialScreen();
   game.setup();
-  scenes = {
+  screens = {
     game,
     initialScreen
   }
@@ -18,5 +19,5 @@ function keyPressed(){
 }
 
 function draw() {
-  scenes[currentScene].draw();
+  screens[currentScreen].draw();
 }

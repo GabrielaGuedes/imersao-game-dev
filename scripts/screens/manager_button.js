@@ -4,7 +4,7 @@ class ManagerButton {
     this.x = x;
     this.y = y;
     this.button = createButton(this.text);
-    this.button.mousePressed(() => this._changeScene());
+    this.button.mousePressed(() => this._changeScreen());
     this.button.addClass(CSS_CLASSES.startButton);
   }
 
@@ -13,8 +13,8 @@ class ManagerButton {
     this.button.center('horizontal');
   }
 
-  _changeScene() {
+  _changeScreen() {
     this.button.remove();
-    currentScene = SCENES.game;
+    currentScreen = SCREENS.game;
   }
 }

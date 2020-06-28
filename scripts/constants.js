@@ -43,7 +43,7 @@ const CSS_CLASSES = {
   startButton: 'initial-screen-button'
 }
 
-const SCENES = {
+const SCREENS = {
   initialScreen: 'initialScreen',
   game: 'game'
 }

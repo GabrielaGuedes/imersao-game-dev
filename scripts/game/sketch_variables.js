@@ -45,7 +45,7 @@ let score;
 let enemySpawner;
 let game;
 let gameOver;
-let currentScene = SCENES.initialScreen;
+let currentScreen = SCREENS.initialScreen;
 let initialScreen;
 let managerButton;
 let life;
