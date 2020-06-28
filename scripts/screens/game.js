@@ -18,6 +18,7 @@ class Game {
   }
 
   setup() {
+    gameSound.loop();
     scenario = new Scenario(scenarioImage, scenarioSpeed);
     score = new Score();
     life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);

@@ -1,9 +1,15 @@
 class InitialScreen {
+  constructor(handleStartClick) {
+    this.startButton = new StartButton('Start', width/2, height/2, handleStartClick);
+  }
+
   draw(){
     this._backgroundImage();
     this._text();
     this._button();
   }
+
+  keyPressed(key) {}
 
   _backgroundImage(){
     image(initialScreenImage, 0, 0, width, height);
@@ -18,7 +24,7 @@ class InitialScreen {
   }
 
   _button(){
-    managerButton.y = height/7*5;
-    managerButton.draw();
+    this.startButton.y = height/7*5;
+    this.startButton.draw();
   }
 }

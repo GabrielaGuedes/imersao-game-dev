@@ -1,10 +1,11 @@
-class ManagerButton {
-  constructor(text, x, y) {
+class StartButton {
+  constructor(text, x, y, handleStartClick) {
     this.text = text;
     this.x = x;
     this.y = y;
     this.button = createButton(this.text);
-    this.button.mousePressed(() => this._changeScreen());
+    this.handleStartClick = handleStartClick;
+    this.button.mousePressed(() => this._onStartClick());
     this.button.addClass(CSS_CLASSES.startButton);
   }
 
@@ -13,8 +14,8 @@ class ManagerButton {
     this.button.center('horizontal');
   }
 
-  _changeScreen() {
+  _onStartClick() {
+    this.handleStartClick();
     this.button.remove();
-    currentScreen = SCREENS.game;
   }
 }
