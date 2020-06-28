@@ -1,8 +1,4 @@
 class InitialScreen {
-  constructor() {
-    
-  }
-
   draw(){
     this._backgroundImage();
     this._text();
@@ -14,12 +10,11 @@ class InitialScreen {
   }
 
   _text(){
-    const fontSize = 50;
     textFont(initialScreenFont);
-    textSize(fontSize);
+    textSize(FONT_SIZES.gameTitle);
     textAlign(CENTER);
     text('As aventuras de', width/2, height/5);
-    text('Tuk', width/2, height/5 + fontSize);
+    text('Tuk', width/2, height/5 + FONT_SIZES.gameTitle);
   }
 
   _button(){

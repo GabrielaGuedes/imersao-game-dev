@@ -18,7 +18,7 @@ class Animation {
     this.spriteHeight = spriteHeight;
     this.frameColumns = frameColumns;
     this.currentFrame = 0;
-    this.calculateMatrix();
+    this._calculateMatrix();
   }
 
   show(){
@@ -35,14 +35,6 @@ class Animation {
     }
   }
 
-  calculateMatrix() {
-    this.matrix = [];
-    for (let i = 0; i < this.imageFrames; i++) {
-      this.matrix[i] = [(i % this.frameColumns) * this.spriteWidth, parseInt(i/this.frameColumns) * this.spriteHeight];
-    }
-  }
-
-  
   polygonFrame() {
     const adjustedWidth = this.width * GAME_CONSTANTS.precision;
     const adjustedHeight = this.height * GAME_CONSTANTS.precision;
@@ -62,5 +54,12 @@ class Animation {
     polygonFrame[7] = createVector(adjustedX + 2*adjustedWidth/3, adjustedY);
 
     return polygonFrame;
+  }
+
+  _calculateMatrix() {
+    this.matrix = [];
+    for (let i = 0; i < this.imageFrames; i++) {
+      this.matrix[i] = [(i % this.frameColumns) * this.spriteWidth, parseInt(i/this.frameColumns) * this.spriteHeight];
+    }
   }
 }

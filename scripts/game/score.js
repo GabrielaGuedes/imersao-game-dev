@@ -6,8 +6,8 @@ class Score {
   show() {
     textAlign(RIGHT);
     fill(COLORS.white);
-    textSize(50);
-    text(parseInt(this.score), width - GAME_CONSTANTS.scoreMarginLeft, GAME_CONSTANTS.scoreMarginTop);
+    textSize(FONT_SIZES.score);
+    text(parseInt(this.score), width - 30, 50);
   }
 
   incrementScore() {

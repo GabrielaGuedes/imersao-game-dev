@@ -80,14 +80,6 @@ class Game {
     character.applyGravity();
     life.draw();
   
-    // if (enemySpawner.spawnEnemy()) {
-    //   enemyToBorn = enemySpawner.spawnEnemy();
-    // }
-    // if (enemyToBorn) {
-    //   enemyToBorn.show();
-    //   enemyToBorn.move();
-    // }
-  
     const currentLine = this.map[this.currentIndex];
     const enemy = enemies[currentLine.enemy];
     const visibleEnemy = enemy.coordinates.x < - enemy.width;

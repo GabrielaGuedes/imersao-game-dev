@@ -6,8 +6,6 @@ const GAME_CONSTANTS = {
   gameOverImageWidth: 412,
   gameOverImageHeight: 78,
   floorHeight: 15,
-  scoreMarginLeft: 30,
-  scoreMarginTop: 50,
   totalLife: 3,
   initialLife: 3
 }
@@ -27,6 +25,11 @@ const FONT_PATHS = {
   initialScreenFont: 'fonts/initial_screen_font.otf'
 }
 
+const FONT_SIZES = {
+  gameTitle: 50,
+  score: 50
+}
+
 const SOUNDS_PATHS = {
   gameTrack: 'sounds/game_track.mp3',
   jump: 'sounds/jump_sound.mp3'
@@ -34,4 +37,13 @@ const SOUNDS_PATHS = {
 
 const COLORS = {
   white: '#fff'
+}
+
+const CSS_CLASSES = {
+  startButton: 'initial-screen-button'
+}
+
+const SCENES = {
+  initialScreen: 'initialScreen',
+  game: 'game'
 }

@@ -31,35 +31,19 @@ class Character extends Animation {
   }
 
   jump(sound) {
-    if (this.canJump()) {
+    if (this._canJump()) {
       this.jumpSpeed = this.jumpHeight;
       this.recentSingleJump = !this.recentSingleJump;
       sound.play();
     }
   }
 
-  canJump() {
-    return this.coordinates.y === this.initialY || this.recentSingleJump;
-  }
-
   applyGravity() {
     this.coordinates.y += this.jumpSpeed;
     this.jumpSpeed += GAME_CONSTANTS.gravity;
     
-    this.resetJump();
-    this.useFloorAsLimit();
-  }
-
-  resetJump() {
-    if(this.coordinates.y >= this.initialY) {
-      this.recentSingleJump = false;
-    }
-  }
-
-  useFloorAsLimit() {
-    if(this.coordinates.y > this.initialY) {
-      this.coordinates.y = this.initialY;
-    }
+    this._resetJump();
+    this._useFloorAsLimit();
   }
 
   isColliding(enemy) {
@@ -73,5 +57,21 @@ class Character extends Animation {
     setTimeout(() => { 
       this.isInvencible = false
     }, 1000)
+  }
+
+  _canJump() {
+    return this.coordinates.y === this.initialY || this.recentSingleJump;
+  }
+
+  _resetJump() {
+    if(this.coordinates.y >= this.initialY) {
+      this.recentSingleJump = false;
+    }
+  }
+
+  _useFloorAsLimit() {
+    if(this.coordinates.y > this.initialY) {
+      this.coordinates.y = this.initialY;
+    }
   }
 }

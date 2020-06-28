@@ -5,7 +5,7 @@ class ManagerButton {
     this.y = y;
     this.button = createButton(this.text);
     this.button.mousePressed(() => this._changeScene());
-    this.button.addClass('initial-screen-button');
+    this.button.addClass(CSS_CLASSES.startButton);
   }
 
   draw() {
@@ -15,6 +15,6 @@ class ManagerButton {
 
   _changeScene() {
     this.button.remove();
-    currentScene = 'game';
+    currentScene = SCENES.game;
   }
 }

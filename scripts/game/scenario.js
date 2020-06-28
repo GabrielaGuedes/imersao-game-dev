@@ -15,13 +15,13 @@ class Scenario {
     this.x1 = this.x1 - this.speed;
     this.x2 = this.x2 - this.speed;
     
-    if (this.positionHasCompletlyDisappeared(this.x1)) 
+    if (this._positionHasCompletlyDisappeared(this.x1)) 
       this.x1 = width;
-    if (this.positionHasCompletlyDisappeared(this.x2)) 
+    if (this._positionHasCompletlyDisappeared(this.x2)) 
       this.x2 = width;
   }
 
-  positionHasCompletlyDisappeared(position){
+  _positionHasCompletlyDisappeared(position){
     return position < -width;
   }
 }
