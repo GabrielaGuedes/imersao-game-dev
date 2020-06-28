@@ -12,7 +12,6 @@ class Life {
 
   draw() {
     const margin = 10;
-    const position = this.initialX;
     for(let i = 0; i < this.lifes; i++) {
       image(heartImage, this.initialX*(1+i) + margin*i, this.y, this.width, this.height);
     }
