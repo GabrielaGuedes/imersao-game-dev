@@ -19,36 +19,34 @@ class Game {
 
   setup() {
     gameSound.loop();
-    scenario = new Scenario(scenarioImage, scenarioSpeed);
-    score = new Score();
-    life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
-    character = new Character(CHARACTER_IMAGE_CONFIGS(), 0);
+    this.scenario = new Scenario(scenarioImage, scenarioSpeed);
+    this.score = new Score();
+    this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
+    this.character = new Character(CHARACTER_IMAGE_CONFIGS(), 0);
     const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS(), LITTLE_DROP_SPEED);
     const troll = new Enemy(TROLL_IMAGE_CONFIGS(), TROLL_SPEED);
     const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS(), FLYING_ENEMY_SPEED);
 
-    enemies.push(littleDrop, troll, flyingEnemy);
-
-    enemySpawner = new EnemySpawner(enemies);
+    this.enemies = [littleDrop, troll, flyingEnemy];
   }
 
   keyPressed(key) {
     if (key === 'ArrowUp'){
-      character.jump(jumpSound); 
+      this.character.jump(jumpSound); 
     }
   }
 
   draw(){
-    scenario.show();
-    scenario.move();
-    score.show();
-    score.incrementScore();
-    character.show();
-    character.applyGravity();
-    life.draw();
+    this.scenario.show();
+    this.scenario.move();
+    this.score.show();
+    this.score.incrementScore();
+    this.character.show();
+    this.character.applyGravity();
+    this.life.draw();
   
     const currentLine = this.map[this.currentIndex];
-    const enemy = enemies[currentLine.enemy];
+    const enemy = this.enemies[currentLine.enemy];
     const visibleEnemy = enemy.x < - enemy.width;
     enemy.speed = currentLine.speed;
     
@@ -64,15 +62,15 @@ class Game {
     }
     
   
-    if (character.isColliding(enemy)) {
-      life.lostLife();
-      character.becomeTemporallyInvencible();
+    if (this.character.isColliding(enemy)) {
+      this.life.lostLife();
+      this.character.becomeTemporallyInvencible();
     }
 
-    if(life.lifes === 0) {
+    if(this.life.lifes === 0) {
       noLoop();
-      gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
-      gameOver.display();
+      this.gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
+      this.gameOver.display();
     }
   }
 }
