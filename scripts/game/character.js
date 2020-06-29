@@ -1,29 +1,11 @@
 const DEFAULT_JUMP_SIZE = 30;
 
 class Character extends Animation {
-  constructor(
-    imageFrames, 
-    image, 
-    x, 
-    objectWidth, 
-    objectHeight, 
-    spriteWidth,
-    spriteHeight, 
-    frameColumns
-  ) {
-    super(
-      imageFrames, 
-      image, 
-      x, 
-      objectWidth, 
-      objectHeight, 
-      spriteWidth,
-      spriteHeight, 
-      frameColumns
-    );
+  constructor(imageConfigs, x) {
+    super(imageConfigs, x);
 
     this.initialY = height - this.height - GAME_CONSTANTS.floorHeight;
-    this.coordinates.y = this.initialY;
+    this.y = this.initialY;
     this.jumpSpeed = 0;
     this.jumpHeight = -DEFAULT_JUMP_SIZE;
     this.recentSingleJump = false;
@@ -39,7 +21,7 @@ class Character extends Animation {
   }
 
   applyGravity() {
-    this.coordinates.y += this.jumpSpeed;
+    this.y += this.jumpSpeed;
     this.jumpSpeed += GAME_CONSTANTS.gravity;
     
     this._resetJump();
@@ -60,18 +42,18 @@ class Character extends Animation {
   }
 
   _canJump() {
-    return this.coordinates.y === this.initialY || this.recentSingleJump;
+    return this.y === this.initialY || this.recentSingleJump;
   }
 
   _resetJump() {
-    if(this.coordinates.y >= this.initialY) {
+    if(this.y >= this.initialY) {
       this.recentSingleJump = false;
     }
   }
 
   _useFloorAsLimit() {
-    if(this.coordinates.y > this.initialY) {
-      this.coordinates.y = this.initialY;
+    if(this.y > this.initialY) {
+      this.y = this.initialY;
     }
   }
 }

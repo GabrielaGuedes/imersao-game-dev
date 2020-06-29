@@ -1,33 +1,25 @@
 class Animation {
-  constructor(
-    imageFrames, 
-    image, 
-    x, 
-    objectWidth, 
-    objectHeight, 
-    spriteWidth, 
-    spriteHeight, 
-    frameColumns
-  ) {
-    this.imageFrames = imageFrames;
-    this.image = image;
-    this.width = objectWidth;
-    this.height = objectHeight;
-    this.coordinates = {x: x, y: height - this.height - GAME_CONSTANTS.floorHeight};
-    this.spriteWidth = spriteWidth;
-    this.spriteHeight = spriteHeight;
-    this.frameColumns = frameColumns;
+  constructor(imageConfigs, x) {
+    this.imageFrames = imageConfigs.frames;
+    this.image = imageConfigs.image;
+    this.width = imageConfigs.width;
+    this.height = imageConfigs.height;
+    this.x = x;
+    this.y = height - this.height - GAME_CONSTANTS.floorHeight;
+    this.spriteWidth = imageConfigs.spriteWidth;
+    this.spriteHeight = imageConfigs.spriteHeight;
+    this.frameColumns = imageConfigs.frameColumns;
     this.currentFrame = 0;
     this._calculateMatrix();
   }
 
-  show(){
-    image(this.image, this.coordinates.x, this.coordinates.y, this.width, this.height, this.matrix[this.currentFrame][0], 
+  show() {
+    image(this.image, this.x, this.y, this.width, this.height, this.matrix[this.currentFrame][0], 
       this.matrix[this.currentFrame][1], this.spriteWidth, this.spriteHeight); 
     this.animate();
   }
 
-  animate(){
+  animate() {
     this.currentFrame++;
     
     if(this.currentFrame >= this.matrix.length){
@@ -39,8 +31,8 @@ class Animation {
     const adjustedWidth = this.width * GAME_CONSTANTS.precision;
     const adjustedHeight = this.height * GAME_CONSTANTS.precision;
 
-    const adjustedX = this.coordinates.x + (this.width - adjustedWidth)/2;
-    const adjustedY = this.coordinates.y + (this.height - adjustedHeight)/2;
+    const adjustedX = this.x + (this.width - adjustedWidth)/2;
+    const adjustedY = this.y + (this.height - adjustedHeight)/2;
 
     const polygonFrame = [];
 
