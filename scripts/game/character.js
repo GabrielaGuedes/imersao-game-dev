@@ -12,6 +12,11 @@ class Character extends Animation {
     this.isInvencible = false;
   }
 
+  draw() {
+    this.show();
+    this.applyGravity();
+  }
+
   jump(sound) {
     if (this._canJump()) {
       this.jumpSpeed = this.jumpHeight;

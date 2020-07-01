@@ -2,7 +2,7 @@ class Life {
   constructor(total, initial) {
     this.total = total;
     this.initial = initial;
-    this.lifes = this.initial;
+    this.hearts = this.initial;
 
     this.width = 25;
     this.height = 25;
@@ -12,18 +12,18 @@ class Life {
 
   draw() {
     const margin = 10;
-    for(let i = 0; i < this.lifes; i++) {
+    for(let i = 0; i < this.hearts; i++) {
       image(heartImage, this.initialX*(1+i) + margin*i, this.y, this.width, this.height);
     }
   }
 
   gainLife() {
-    if (this.lifes < this.total) {
-      this.lifes++;
+    if (this.hearts < this.total) {
+      this.hearts++;
     }
   }
 
   lostLife() {
-    this.lifes--;
+    this.hearts--;
   }
 }

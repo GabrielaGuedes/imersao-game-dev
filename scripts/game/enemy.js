@@ -6,6 +6,11 @@ class Enemy extends Animation {
     this.x = width;
   }
 
+  draw() {
+    this.show();
+    this.move();
+  }
+
   show(){
     image(this.image, this.x, this.y, this.width, this.height, this.matrix[this.currentFrame][0], 
       this.matrix[this.currentFrame][1], this.spriteWidth, this.spriteHeight); 

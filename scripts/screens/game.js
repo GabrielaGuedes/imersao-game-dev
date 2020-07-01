@@ -37,22 +37,18 @@ class Game {
   }
 
   draw(){
-    this.scenario.show();
-    this.scenario.move();
-    this.score.show();
-    this.score.incrementScore();
-    this.character.show();
-    this.character.applyGravity();
+    this.scenario.draw();
+    this.score.draw();
     this.life.draw();
+    this.character.draw();
   
     const currentLine = this.map[this.currentIndex];
     const enemy = this.enemies[currentLine.enemy];
     const visibleEnemy = enemy.x < - enemy.width;
     enemy.speed = currentLine.speed;
     
-    enemy.show();
-    enemy.move();
-  
+    enemy.draw();
+
     if (visibleEnemy) {
       this.currentIndex++;
       enemy.appear();
@@ -61,16 +57,23 @@ class Game {
       }
     }
     
-  
     if (this.character.isColliding(enemy)) {
-      this.life.lostLife();
-      this.character.becomeTemporallyInvencible();
+      this._deal_with_collision();
     }
+    
+    if(this.life.hearts === 0) {
+      this._end_game();
+    }
+  }
 
-    if(this.life.lifes === 0) {
-      noLoop();
-      this.gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
-      this.gameOver.display();
-    }
+  _deal_with_collision() {
+    this.life.lostLife();
+    this.character.becomeTemporallyInvencible();    
+  }
+
+  _end_game() {
+    noLoop();
+    this.gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
+    this.gameOver.display();
   }
 }

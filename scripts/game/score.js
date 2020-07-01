@@ -3,6 +3,11 @@ class Score {
     this.score = 0;
   }
 
+  draw() {
+    this.show();
+    this.incrementScore();
+  }
+
   show() {
     textAlign(RIGHT);
     fill(COLORS.white);

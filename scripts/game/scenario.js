@@ -5,6 +5,11 @@ class Scenario {
     this.x1 = 0;
     this.x2 = width;
   }
+
+  draw() {
+    this.show();
+    this.move();
+  }
   
   show() {
     image(this.image, this.x1, 0, width, height);
