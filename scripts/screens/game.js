@@ -1,21 +1,5 @@
 class Game {
-  constructor() {
-    this.currentIndex = 0;
-    this.map = [
-      {
-        enemy: 0,
-        speed: 10
-      },
-      {
-        enemy: 1,
-        speed: 30
-      },
-      {
-        enemy: 2,
-        speed: 40
-      }
-    ]
-  }
+  constructor() {}
 
   setup() {
     gameSound.loop();
@@ -26,8 +10,7 @@ class Game {
     const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS(), LITTLE_DROP_SPEED);
     const troll = new Enemy(TROLL_IMAGE_CONFIGS(), TROLL_SPEED);
     const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS(), FLYING_ENEMY_SPEED);
-
-    this.enemies = [littleDrop, troll, flyingEnemy];
+    this.enemySpawner = new EnemySpawner([littleDrop, troll, flyingEnemy]);
   }
 
   keyPressed(key) {
@@ -41,23 +24,9 @@ class Game {
     this.score.draw();
     this.life.draw();
     this.character.draw();
-  
-    const currentLine = this.map[this.currentIndex];
-    const enemy = this.enemies[currentLine.enemy];
-    const visibleEnemy = enemy.x < - enemy.width;
-    enemy.speed = currentLine.speed;
+    this.enemySpawner.draw();
     
-    enemy.draw();
-
-    if (visibleEnemy) {
-      this.currentIndex++;
-      enemy.appear();
-      if(this.currentIndex >= this.map.length) {
-        this.currentIndex = 0;
-      }
-    }
-    
-    if (this.character.isColliding(enemy)) {
+    if (this.character.isColliding(this.enemySpawner.currentEnemy())) {
       this._dealWithCollision();
     }
     

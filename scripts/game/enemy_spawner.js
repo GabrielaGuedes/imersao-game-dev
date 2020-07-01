@@ -1,25 +1,35 @@
 class EnemySpawner {
   constructor(enemies) {
     this.enemies = enemies;
+    this.currentIndex = 0;
+    this.speeds = [10, 30, 40];
+    this.enemies[0].speed = 10
+    this.enemies[1].speed = 30
+    this.enemies[2].speed = 40
   }
 
-  addEnemy(enemy) {
-    this.enemies.push(enemy);
-  }
+  draw() {
+    this.currentEnemy().draw();
 
-  spawnEnemy() {
-    if (this.canSpawn()) {
-      // this.randomEnemy().allowedToShow = true;
-      // this.randomEnemy().show();
-      return this.randomEnemy();
+    if (this._hasVisibleEnemy()) {
+      this.updateCurrentIndex();
+      this.currentEnemy().appear();
     }
   }
 
-  canSpawn() {
-    return this.enemies.filter(enemy => enemy.isBeingDisplayed()).length === 0;
+  updateCurrentIndex() {
+    this.currentIndex++;
+    if(this.currentIndex >= this.enemies.length) {
+      this.currentIndex = 0;
+    }
   }
 
-  randomEnemy() {
-    return this.enemies[Math.floor(Math.random() * this.enemies.length)];
+  currentEnemy() {
+    return this.enemies[this.currentIndex];
   }
+
+  _hasVisibleEnemy() {
+    return this.currentEnemy().x < - this.currentEnemy().width;
+  }
+
 }
