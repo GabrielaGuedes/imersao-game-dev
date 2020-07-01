@@ -58,20 +58,20 @@ class Game {
     }
     
     if (this.character.isColliding(enemy)) {
-      this._deal_with_collision();
+      this._dealWithCollision();
     }
     
     if(this.life.hearts === 0) {
-      this._end_game();
+      this._endGame();
     }
   }
 
-  _deal_with_collision() {
+  _dealWithCollision() {
     this.life.lostLife();
     this.character.becomeTemporallyInvencible();    
   }
 
-  _end_game() {
+  _endGame() {
     noLoop();
     this.gameOver = new GameOver(gameOverImage, GAME_CONSTANTS.gameOverImageWidth, GAME_CONSTANTS.gameOverImageHeight);
     this.gameOver.display();
