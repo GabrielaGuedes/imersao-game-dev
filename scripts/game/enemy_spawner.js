@@ -2,10 +2,13 @@ class EnemySpawner {
   constructor(enemies) {
     this.enemies = enemies;
     this.currentIndex = 0;
-    this.speeds = [10, 30, 40];
-    this.enemies[0].speed = 10
-    this.enemies[1].speed = 30
-    this.enemies[2].speed = 40
+    this.setSpeedForEnemies();
+  }
+
+  setSpeedForEnemies() {
+    this.enemies.forEach(enemy => {
+      enemy.speed = this._getRandomSpeed();
+    })
   }
 
   draw() {
@@ -32,4 +35,7 @@ class EnemySpawner {
     return this.currentEnemy().x < - this.currentEnemy().width;
   }
 
+  _getRandomSpeed() {
+    return Math.random()*20 + 10;
+  }
 }

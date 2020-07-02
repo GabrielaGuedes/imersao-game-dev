@@ -6,10 +6,10 @@ class Game {
     this.scenario = new Scenario(scenarioImage, scenarioSpeed);
     this.score = new Score();
     this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
-    this.character = new Character(CHARACTER_IMAGE_CONFIGS(), 0);
-    const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS(), LITTLE_DROP_SPEED);
-    const troll = new Enemy(TROLL_IMAGE_CONFIGS(), TROLL_SPEED);
-    const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS(), FLYING_ENEMY_SPEED);
+    this.character = new Character(CHARACTER_IMAGE_CONFIGS(), 10);
+    const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS());
+    const troll = new Enemy(TROLL_IMAGE_CONFIGS());
+    const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS());
     this.enemySpawner = new EnemySpawner([littleDrop, troll, flyingEnemy]);
   }
 

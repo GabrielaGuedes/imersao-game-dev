@@ -23,7 +23,6 @@ const LITTLE_DROP_IMAGE_CONFIGS = () => {
     frameColumns: 4
   })
 }
-const LITTLE_DROP_SPEED = 10;
 
 const TROLL_IMAGE_CONFIGS = () => {
   const image = loadImage(IMAGE_PATHS.trollEnemy);
@@ -37,7 +36,6 @@ const TROLL_IMAGE_CONFIGS = () => {
     frameColumns: 5
   })
 }
-const TROLL_SPEED = 10;
 
 const FLYING_ENEMY_IMAGE_CONFIGS = () => {
   const image = loadImage(IMAGE_PATHS.flyingDropEnemy)
@@ -51,4 +49,3 @@ const FLYING_ENEMY_IMAGE_CONFIGS = () => {
     frameColumns: 3
   })
 }
-const FLYING_ENEMY_SPEED = 10;

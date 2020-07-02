@@ -1,8 +1,8 @@
 class Enemy extends Animation {
-  constructor(imageConfigs, x, speed) {
+  constructor(imageConfigs, x) {
     super(imageConfigs, x);
 
-    this.speed = speed;
+    this.speed = 10;
     this.x = width;
   }
 
