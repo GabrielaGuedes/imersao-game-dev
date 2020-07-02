@@ -7,7 +7,9 @@ const GAME_CONSTANTS = {
   gameOverImageHeight: 78,
   floorHeight: 15,
   totalLife: 3,
-  initialLife: 3
+  initialLife: 3,
+  scenarioSpeed: 7,
+  characterPosition: 100
 }
 
 const IMAGE_PATHS = {

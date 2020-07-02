@@ -3,10 +3,10 @@ class Game {
 
   setup() {
     gameSound.loop();
-    this.scenario = new Scenario(scenarioImage, scenarioSpeed);
+    this.scenario = new Scenario(scenarioImage, GAME_CONSTANTS.scenarioSpeed);
     this.score = new Score();
     this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
-    this.character = new Character(CHARACTER_IMAGE_CONFIGS(), 10);
+    this.character = new Character(CHARACTER_IMAGE_CONFIGS(), GAME_CONSTANTS.characterPosition);
     const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS());
     const troll = new Enemy(TROLL_IMAGE_CONFIGS());
     const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS());

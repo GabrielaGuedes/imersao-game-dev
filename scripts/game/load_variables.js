@@ -5,4 +5,3 @@ let gameOverImage;
 let heartImage;
 let gameSound;
 let jumpSound;
-let scenarioSpeed = 5;
