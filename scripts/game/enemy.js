@@ -1,8 +1,9 @@
+const DEFAULT_SPEED = 10;
 class Enemy extends Animation {
   constructor(imageConfigs, x) {
     super(imageConfigs, x);
 
-    this.speed = 10;
+    this.speed = DEFAULT_SPEED;
     this.x = width;
   }
 

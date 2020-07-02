@@ -2,15 +2,8 @@ class EnemySpawner {
   constructor(enemies) {
     this.enemies = enemies;
     this.currentIndex = 0;
-    this.setSpeedForEnemies();
+    this._setSpeedForEnemies();
   }
-
-  setSpeedForEnemies() {
-    this.enemies.forEach(enemy => {
-      enemy.speed = this._getRandomSpeed();
-    })
-  }
-
   draw() {
     this.currentEnemy().draw();
 
@@ -21,21 +14,25 @@ class EnemySpawner {
   }
 
   updateCurrentIndex() {
-    this.currentIndex++;
-    if(this.currentIndex >= this.enemies.length) {
-      this.currentIndex = 0;
-    }
+    this.currentIndex = this._getRandomIndex();
   }
 
   currentEnemy() {
     return this.enemies[this.currentIndex];
   }
 
+  _setSpeedForEnemies() {
+    this.enemies.forEach(enemy => {
+      enemy.speed = Math.random()*20 + 10;
+    })
+  }
+
+
   _hasVisibleEnemy() {
     return this.currentEnemy().x < - this.currentEnemy().width;
   }
 
-  _getRandomSpeed() {
-    return Math.random()*20 + 10;
+  _getRandomIndex() {
+    return Math.floor(Math.random() * this.enemies.length);
   }
 }
