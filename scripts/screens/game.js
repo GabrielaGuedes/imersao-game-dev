@@ -26,13 +26,19 @@ class Game {
     this.character.draw();
     this.enemySpawner.draw();
     
-    if (this.character.isColliding(this.enemySpawner.currentEnemy())) {
-      this._dealWithCollision();
-    }
-    
+    this._checkForCollision();
+
     if(this.life.hearts === 0) {
       this._endGame();
     }
+  }
+
+  _checkForCollision() {
+    this.enemySpawner.activeEnemies.forEach(enemy => {
+      if (this.character.isColliding(enemy)) {
+        this._dealWithCollision();
+      }
+    })
   }
 
   _dealWithCollision() {

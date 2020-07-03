@@ -26,7 +26,7 @@ class Enemy extends Animation {
     this.x = width;
   }
 
-  isBeingDisplayed() {
-    return this.x < width && this.x > 0 && this.y < height && this.y > 0;
+  hasCrossedScreen() {
+    return this.x < - this.width;
   }
 }
