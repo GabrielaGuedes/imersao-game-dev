@@ -7,7 +7,7 @@ class EnemySpawner {
   draw() {
     this.currentEnemy().draw();
 
-    if (this._hasVisibleEnemy()) {
+    if (this._enemyDisappeared()) {
       this.updateCurrentIndex();
       this.currentEnemy().appear();
     }
@@ -28,7 +28,7 @@ class EnemySpawner {
   }
 
 
-  _hasVisibleEnemy() {
+  _enemyDisappeared() {
     return this.currentEnemy().x < - this.currentEnemy().width;
   }
 
