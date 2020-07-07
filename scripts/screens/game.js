@@ -7,10 +7,10 @@ class Game {
     this.score = new Score();
     this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
     this.character = new Character(CHARACTER_IMAGE_CONFIGS(), GAME_CONSTANTS.characterPosition);
-    const littleDrop = new Enemy(LITTLE_DROP_IMAGE_CONFIGS());
-    const troll = new Enemy(TROLL_IMAGE_CONFIGS());
-    const flyingEnemy = new Enemy(FLYING_ENEMY_IMAGE_CONFIGS());
-    this.enemySpawner = new EnemySpawner([littleDrop, troll, flyingEnemy]);
+    const plankton = new Enemy(PLANKTON_IMAGE_CONFIGS());
+    const squidward = new Enemy(SQUIDWARD_IMAGE_CONFIGS());
+    const boat = new Enemy(BOAT_IMAGE_CONFIGS());
+    this.enemySpawner = new EnemySpawner([plankton, squidward, boat]);
   }
 
   keyPressed(key) {

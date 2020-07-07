@@ -2,50 +2,50 @@ const CHARACTER_IMAGE_CONFIGS = () => {
   const image = loadImage(IMAGE_PATHS.runningCharacter);
   return ({
     image,
-    frames: 16,
-    width: 110,
+    frames: 8,
+    width: 162,
     height: 135,
-    spriteWidth: 220,
-    spriteHeight: 270,
-    frameColumns: 4
+    spriteWidth: 96,
+    spriteHeight: 80,
+    frameColumns: 8
   })
 }
 
-const LITTLE_DROP_IMAGE_CONFIGS = () => {
-  const image = loadImage(IMAGE_PATHS.littleDropEnemy);
+const PLANKTON_IMAGE_CONFIGS = () => {
+  const image = loadImage(IMAGE_PATHS.plankton);
   return ({
     image,
-    frames: 28,
-    width: 52,
-    height: 52,
-    spriteWidth: 104,
-    spriteHeight: 104,
-    frameColumns: 4
+    frames: 10,
+    width: 67.1,
+    height: 137,
+    spriteWidth: 67.1,
+    spriteHeight: 137,
+    frameColumns: 10
   })
 }
 
-const TROLL_IMAGE_CONFIGS = () => {
-  const image = loadImage(IMAGE_PATHS.trollEnemy);
+const SQUIDWARD_IMAGE_CONFIGS = () => {
+  const image = loadImage(IMAGE_PATHS.squidward);
   return ({
     image,
-    frames: 28,
-    width: 200,
-    height: 200,
-    spriteWidth: 400,
-    spriteHeight: 400,
-    frameColumns: 5
+    frames: 6,
+    width: 97.66,
+    height: 110,
+    spriteWidth: 48.83,
+    spriteHeight: 55,
+    frameColumns: 6
   })
 }
 
-const FLYING_ENEMY_IMAGE_CONFIGS = () => {
-  const image = loadImage(IMAGE_PATHS.flyingDropEnemy)
+const BOAT_IMAGE_CONFIGS = () => {
+  const image = loadImage(IMAGE_PATHS.boat)
   return ({
     image,
-    frames: 16,
-    width: 100,
-    height: 75,
-    spriteWidth: 200,
-    spriteHeight: 150,
-    frameColumns: 3
+    frames: 2,
+    width: 168,
+    height: 124,
+    spriteWidth: 84,
+    spriteHeight: 62,
+    frameColumns: 2
   })
 }

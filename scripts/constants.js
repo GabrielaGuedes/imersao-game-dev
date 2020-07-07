@@ -5,20 +5,20 @@ const GAME_CONSTANTS = {
   frameRate: 40,
   gameOverImageWidth: 412,
   gameOverImageHeight: 78,
-  floorHeight: 15,
+  floorHeight: 155,
   totalLife: 3,
   initialLife: 3,
-  scenarioSpeed: 7,
+  scenarioSpeed: 10,
   characterPosition: 100
 }
 
 const IMAGE_PATHS = {
-  forestScenario: 'images/scenario/forest.png',
+  forestScenario: 'images/scenario/sponge.jpg',
   initialScreen: 'images/assets/initial_screen.png',
-  runningCharacter: 'images/character/running.png',
-  littleDropEnemy: 'images/enemies/little_drop.png',
-  trollEnemy: 'images/enemies/troll.png',
-  flyingDropEnemy: 'images/enemies/flying_drop.png',
+  runningCharacter: 'images/character/walking.png',
+  plankton: 'images/enemies/plankton.png',
+  squidward: 'images/enemies/squidward.png',
+  boat: 'images/enemies/boat.png',
   gameOver: 'images/assets/game_over.png',
   heart: 'images/assets/heart.png'
 }
