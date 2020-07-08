@@ -1,4 +1,3 @@
-
 const GAME_CONSTANTS = {
   gravity: 3,
   precision: 0.7,
@@ -9,43 +8,43 @@ const GAME_CONSTANTS = {
   totalLife: 3,
   initialLife: 3,
   scenarioSpeed: 10,
-  characterPosition: 100
-}
+  characterPosition: 100,
+};
 
 const IMAGE_PATHS = {
-  forestScenario: 'images/scenario/sponge.jpg',
-  initialScreen: 'images/assets/initial_screen.png',
-  runningCharacter: 'images/character/walking.png',
-  plankton: 'images/enemies/plankton.png',
-  squidward: 'images/enemies/squidward.png',
-  boat: 'images/enemies/boat.png',
-  gameOver: 'images/assets/game_over.png',
-  heart: 'images/assets/heart.png'
-}
+  forestScenario: "images/scenario/sponge.jpg",
+  initialScreen: "images/assets/initial_screen.png",
+  runningCharacter: "images/character/sponge2.png",
+  plankton: "images/enemies/plankton.png",
+  squidward: "images/enemies/squidward.png",
+  boat: "images/enemies/boat.png",
+  gameOver: "images/assets/game_over.png",
+  heart: "images/assets/heart.png",
+};
 
 const FONT_PATHS = {
-  initialScreenFont: 'fonts/initial_screen_font.otf'
-}
+  initialScreenFont: "fonts/initial_screen_font.otf",
+};
 
 const FONT_SIZES = {
   gameTitle: 50,
-  score: 50
-}
+  score: 50,
+};
 
 const SOUNDS_PATHS = {
-  gameTrack: 'sounds/game_track.mp3',
-  jump: 'sounds/jump_sound.mp3'
-}
+  gameTrack: "sounds/spongebob.mp3",
+  jump: "sounds/jump_sound.mp3",
+};
 
 const COLORS = {
-  white: '#fff'
-}
+  white: "#fff",
+};
 
 const CSS_CLASSES = {
-  startButton: 'initial-screen-button'
-}
+  startButton: "initial-screen-button",
+};
 
 const SCREENS = {
-  initialScreen: 'initialScreen',
-  game: 'game'
-}
+  initialScreen: "initialScreen",
+  game: "game",
+};
