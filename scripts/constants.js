@@ -23,7 +23,7 @@ const IMAGE_PATHS = {
 };
 
 const FONT_PATHS = {
-  initialScreenFont: "fonts/initial_screen_font.otf",
+  initialScreenFont: "fonts/krabby_patty.ttf",
 };
 
 const FONT_SIZES = {
