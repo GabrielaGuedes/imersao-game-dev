@@ -14,6 +14,8 @@ class CollectibleGenerator {
       this.timer = 0;
       this._setRandomIntervalForCollectible();
     }
+
+    this._updateAvailableCollectibles();
   }
 
   generateNewCollectible() {
@@ -24,5 +26,9 @@ class CollectibleGenerator {
 
   _setRandomIntervalForCollectible() {
     this.collectibleInterval = Math.floor(Math.random() * 150);
+  }
+
+  _updateAvailableCollectibles() {
+    this.displayedCollectibles.filter((collectible) => !collectible.collected);
   }
 }

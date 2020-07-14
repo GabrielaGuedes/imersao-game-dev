@@ -3,11 +3,14 @@ class Collectible extends Animation {
     super(imageConfigs, x, Math.floor(Math.random() * 300));
 
     this.speed = GAME_CONSTANTS.scenarioSpeed;
+    this.collected = false;
   }
 
   draw() {
-    this.show();
-    this.move();
+    if (!this.collected) {
+      this.show();
+      this.move();
+    }
   }
 
   move() {
@@ -16,5 +19,9 @@ class Collectible extends Animation {
     if (this.x < -this.width) {
       this.x = width;
     }
+  }
+
+  collect() {
+    this.collected = true;
   }
 }

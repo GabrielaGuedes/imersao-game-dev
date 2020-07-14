@@ -6,6 +6,7 @@ class Game {
     this.scenario = new Scenario(scenarioImage, GAME_CONSTANTS.scenarioSpeed);
     this.score = new Score();
     this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
+    this.collectibles = 0;
     this.character = new Character(
       CHARACTER_IMAGE_CONFIGS(),
       GAME_CONSTANTS.characterPosition
@@ -32,6 +33,7 @@ class Game {
     this.collectibleGenerator.draw();
 
     this._checkForCollision();
+    this._checkForCollectibles();
 
     if (this.life.hearts === 0) {
       this._endGame();
@@ -42,6 +44,15 @@ class Game {
     this.enemySpawner.activeEnemies.forEach((enemy) => {
       if (this.character.isColliding(enemy)) {
         this._dealWithCollision();
+      }
+    });
+  }
+
+  _checkForCollectibles() {
+    this.collectibleGenerator.displayedCollectibles.forEach((collectible) => {
+      if (this.character.isColliding(collectible) && !collectible.collected) {
+        collectible.collect();
+        this.collectibles++;
       }
     });
   }
