@@ -1,6 +1,6 @@
 class Collectible extends Animation {
-  constructor(imageConfigs, x, y) {
-    super(imageConfigs, x, y);
+  constructor(imageConfigs, x) {
+    super(imageConfigs, x, Math.floor(Math.random() * 300));
 
     this.speed = GAME_CONSTANTS.scenarioSpeed;
   }
@@ -12,5 +12,9 @@ class Collectible extends Animation {
 
   move() {
     this.x -= this.speed;
+
+    if (this.x < -this.width) {
+      this.x = width;
+    }
   }
 }

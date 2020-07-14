@@ -13,6 +13,7 @@ class Game {
     const plankton = new Enemy(PLANKTON_IMAGE_CONFIGS());
     const squidward = new Enemy(SQUIDWARD_IMAGE_CONFIGS());
     const boat = new Enemy(BOAT_IMAGE_CONFIGS());
+    this.collectibleGenerator = new CollectibleGenerator();
     this.enemySpawner = new EnemySpawner([plankton, squidward, boat]);
   }
 
@@ -28,6 +29,7 @@ class Game {
     this.life.draw();
     this.character.draw();
     this.enemySpawner.draw();
+    this.collectibleGenerator.draw();
 
     this._checkForCollision();
 
