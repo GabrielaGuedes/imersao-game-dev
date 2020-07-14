@@ -5,7 +5,6 @@ class Score {
 
   draw() {
     this.show();
-    this.incrementScore();
   }
 
   show() {
@@ -16,6 +15,6 @@ class Score {
   }
 
   incrementScore() {
-    this.score += 0.2;
+    this.score++;
   }
 }

@@ -52,7 +52,7 @@ class Game {
     this.collectibleGenerator.displayedCollectibles.forEach((collectible) => {
       if (this.character.isColliding(collectible) && !collectible.collected) {
         collectible.collect();
-        this.collectibles++;
+        this.score.incrementScore();
       }
     });
   }
