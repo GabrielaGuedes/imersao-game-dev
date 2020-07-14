@@ -12,10 +12,10 @@ class Game {
       GAME_CONSTANTS.characterPosition
     );
     const plankton = new Enemy(PLANKTON_IMAGE_CONFIGS());
-    const squidward = new Enemy(SQUIDWARD_IMAGE_CONFIGS());
-    const boat = new Enemy(BOAT_IMAGE_CONFIGS());
+    const plankton2 = new Enemy(PLANKTON_IMAGE_CONFIGS());
+    const plankton3 = new Enemy(PLANKTON_IMAGE_CONFIGS());
     this.collectibleGenerator = new CollectibleGenerator();
-    this.enemySpawner = new EnemySpawner([plankton, squidward, boat]);
+    this.enemySpawner = new EnemySpawner([plankton, plankton2, plankton3]);
   }
 
   keyPressed(key) {
