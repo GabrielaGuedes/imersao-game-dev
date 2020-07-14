@@ -13,7 +13,7 @@ const GAME_CONSTANTS = {
 
 const IMAGE_PATHS = {
   forestScenario: "images/scenario/sponge.jpg",
-  initialScreen: "images/assets/initial_screen.png",
+  initialScreen: "images/assets/initial_screen.jpeg",
   runningCharacter: "images/character/sponge2.png",
   plankton: "images/enemies/plankton.png",
   squidward: "images/enemies/squidward.png",
@@ -28,7 +28,7 @@ const FONT_PATHS = {
 };
 
 const FONT_SIZES = {
-  gameTitle: 50,
+  gameTitle: 60,
   score: 50,
 };
 

@@ -1,9 +1,14 @@
 class InitialScreen {
   constructor(handleStartClick) {
-    this.startButton = new StartButton('Start', width/2, height/2, handleStartClick);
+    this.startButton = new StartButton(
+      "Start",
+      width / 2,
+      height / 2,
+      handleStartClick
+    );
   }
 
-  draw(){
+  draw() {
     this._backgroundImage();
     this._text();
     this._button();
@@ -11,20 +16,20 @@ class InitialScreen {
 
   keyPressed(key) {}
 
-  _backgroundImage(){
+  _backgroundImage() {
     image(initialScreenImage, 0, 0, width, height);
   }
 
-  _text(){
+  _text() {
     textFont(initialScreenFont);
     textSize(FONT_SIZES.gameTitle);
     textAlign(CENTER);
-    text('As aventuras de', width/2, height/5);
-    text('Tuk', width/2, height/5 + FONT_SIZES.gameTitle);
+    text("Spongebob in", width / 2, height / 2);
+    text("Jellyfishing", width / 2, height / 2 + FONT_SIZES.gameTitle);
   }
 
-  _button(){
-    this.startButton.y = height/7*5;
+  _button() {
+    this.startButton.y = (height / 7) * 5;
     this.startButton.draw();
   }
 }
