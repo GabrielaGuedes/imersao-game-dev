@@ -37,10 +37,14 @@ class Character extends Animation {
     this._useFloorAsLimit();
   }
 
-  isColliding(enemy) {
+  isBeingDamagedBy(enemy) {
     if (!this.isInvencible) {
-      return collidePolyPoly(this.polygonFrame(), enemy.polygonFrame());
+      return this._isCollidingWith(enemy);
     }
+  }
+
+  isCatching(collectible) {
+    return this._isCollidingWith(collectible);
   }
 
   becomeTemporallyInvencible() {
@@ -73,5 +77,9 @@ class Character extends Animation {
     if (this.y > this.initialY) {
       this.y = this.initialY;
     }
+  }
+
+  _isCollidingWith(animation) {
+    return collidePolyPoly(this.polygonFrame(), animation.polygonFrame());
   }
 }

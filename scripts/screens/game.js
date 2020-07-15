@@ -42,7 +42,7 @@ class Game {
 
   _checkForCollision() {
     this.enemySpawner.activeEnemies.forEach((enemy) => {
-      if (this.character.isColliding(enemy)) {
+      if (this.character.isBeingDamagedBy(enemy)) {
         this._dealWithCollision();
       }
     });
@@ -50,7 +50,7 @@ class Game {
 
   _checkForCollectibles() {
     this.collectibleGenerator.displayedCollectibles.forEach((collectible) => {
-      if (this.character.isColliding(collectible) && !collectible.collected) {
+      if (this.character.isCatching(collectible) && !collectible.collected) {
         collectible.collect();
         this.score.incrementScore();
       }
