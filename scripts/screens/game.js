@@ -58,6 +58,7 @@ class Game {
   }
 
   _dealWithCollision() {
+    damagedSound.play();
     this.life.lostLife();
     this.character.becomeTemporallyInvencible();
   }

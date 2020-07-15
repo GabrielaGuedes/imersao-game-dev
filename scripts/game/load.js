@@ -7,4 +7,5 @@ function preload() {
   gameSound = loadSound(SOUNDS_PATHS.gameTrack);
   jumpSound = loadSound(SOUNDS_PATHS.jump);
   gameOverSound = loadSound(SOUNDS_PATHS.gameOver);
+  damagedSound = loadSound(SOUNDS_PATHS.damaged);
 }

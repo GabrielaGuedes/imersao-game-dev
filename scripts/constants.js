@@ -36,6 +36,7 @@ const SOUNDS_PATHS = {
   gameTrack: "sounds/spongebob.mp3",
   jump: "sounds/jump_sound.mp3",
   gameOver: "sounds/game_over.mp3",
+  damaged: "sounds/damaged.mp3",
 };
 
 const COLORS = {
