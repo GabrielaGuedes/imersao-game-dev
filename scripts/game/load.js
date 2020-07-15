@@ -6,4 +6,5 @@ function preload() {
   heartImage = loadImage(IMAGE_PATHS.heart);
   gameSound = loadSound(SOUNDS_PATHS.gameTrack);
   jumpSound = loadSound(SOUNDS_PATHS.jump);
+  gameOverSound = loadSound(SOUNDS_PATHS.gameOver);
 }

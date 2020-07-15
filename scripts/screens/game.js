@@ -64,6 +64,8 @@ class Game {
 
   _endGame() {
     noLoop();
+    gameSound.stop();
+    gameOverSound.play();
     this.gameOver = new GameOver(
       gameOverImage,
       GAME_CONSTANTS.gameOverImageWidth,
