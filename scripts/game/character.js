@@ -15,6 +15,10 @@ class Character extends Animation {
   draw() {
     this.show();
     this.applyGravity();
+
+    if (this.isInvencible) {
+      this.draw_invencible_marker();
+    }
   }
 
   jump(sound) {
@@ -28,7 +32,7 @@ class Character extends Animation {
   applyGravity() {
     this.y += this.jumpSpeed;
     this.jumpSpeed += GAME_CONSTANTS.gravity;
-    
+
     this._resetJump();
     this._useFloorAsLimit();
   }
@@ -39,11 +43,20 @@ class Character extends Animation {
     }
   }
 
-  becomeTemporallyInvencible(){
+  becomeTemporallyInvencible() {
     this.isInvencible = true;
-    setTimeout(() => { 
-      this.isInvencible = false
-    }, 1000)
+    setTimeout(() => {
+      this.isInvencible = false;
+    }, 1000);
+  }
+
+  draw_invencible_marker() {
+    fill(255, 10, 10, 127);
+    circle(
+      this.x + this.width / 2,
+      this.y + (this.height * 2) / 3,
+      Math.random() * 300
+    );
   }
 
   _canJump() {
@@ -51,13 +64,13 @@ class Character extends Animation {
   }
 
   _resetJump() {
-    if(this.y >= this.initialY) {
+    if (this.y >= this.initialY) {
       this.recentSingleJump = false;
     }
   }
 
   _useFloorAsLimit() {
-    if(this.y > this.initialY) {
+    if (this.y > this.initialY) {
       this.y = this.initialY;
     }
   }
