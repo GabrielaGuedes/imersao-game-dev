@@ -1,8 +1,7 @@
 function preload() {
-  initialScreenFont = loadFont(FONT_PATHS.initialScreenFont);
+  spongeBobFont = loadFont(FONT_PATHS.spongeBobFont);
   initialScreenImage = loadImage(IMAGE_PATHS.initialScreen);
   scenarioImage = loadImage(IMAGE_PATHS.forestScenario);
-  gameOverImage = loadImage(IMAGE_PATHS.gameOver);
   heartImage = loadImage(IMAGE_PATHS.heart);
   gameSound = loadSound(SOUNDS_PATHS.gameTrack);
   jumpSound = loadSound(SOUNDS_PATHS.jump);

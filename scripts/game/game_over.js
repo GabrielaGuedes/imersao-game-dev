@@ -1,15 +1,28 @@
 class GameOver {
-  constructor(image, imageWidth, imageHeight) {
-    this.image = image;
-    this.width = imageWidth;
-    this.height = imageHeight;
+  constructor(handleRestart) {
+    this.startButton = new StartButton(
+      "Play again",
+      width / 2,
+      height / 2,
+      handleRestart
+    );
   }
 
-  display() {
-    image(this.image, 
-      (width - this.width)/2, 
-      (height - this.height)/2, 
-      this.width, 
-      this.height);
+  draw() {
+    this._text();
+    this._button();
+  }
+
+  _text() {
+    textFont(spongeBobFont);
+    textSize(FONT_SIZES.gameOver);
+    textAlign(CENTER);
+    fill("#FFF56C");
+    text("Game Over", width / 2, height / 2);
+  }
+
+  _button() {
+    this.startButton.y = (height / 7) * 5;
+    this.startButton.draw();
   }
 }

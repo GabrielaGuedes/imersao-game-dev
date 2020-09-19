@@ -1,11 +1,8 @@
 class ScreenManager {
-  constructor() {
-    this.initialScreen = new InitialScreen(this.handleStartClick.bind(this));
-    this.gameScreen = new Game();
-  }
-
   setup() {
+    this.initialScreen = new InitialScreen(this.handleStartClick.bind(this));
     this.currentScreen = this.initialScreen;
+    this._setGame();
   }
 
   draw() {
@@ -19,5 +16,19 @@ class ScreenManager {
   handleStartClick() {
     this.currentScreen = this.gameScreen;
     this.gameScreen.setup();
+  }
+
+  handleGameOver() {
+    this.gameOver = new GameOver(this.handleRestart.bind(this));
+    this.currentScreen = this.gameOver;
+  }
+
+  handleRestart() {
+    this._setGame();
+    this.handleStartClick();
+  }
+
+  _setGame() {
+    this.gameScreen = new Game(this.handleGameOver.bind(this));
   }
 }
