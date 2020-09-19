@@ -17,7 +17,7 @@ class GameOver {
     textFont(spongeBobFont);
     textSize(FONT_SIZES.gameOver);
     textAlign(CENTER);
-    fill("#FFF56C");
+    fill(COLORS.yellow);
     text("Game Over", width / 2, height / 2);
   }
 

@@ -40,6 +40,9 @@ const SOUNDS_PATHS = {
 
 const COLORS = {
   white: "#fff",
+  yellow: "#FFF56C",
+  blue: "#0457a0",
+  aquaBlue: "#26B9C8",
 };
 
 const CSS_CLASSES = {

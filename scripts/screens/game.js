@@ -68,6 +68,14 @@ class Game {
   _endGame() {
     gameSound.stop();
     gameOverSound.play();
+    if (this.score.value > record) {
+      this._updateRecord();
+    }
     this.handleGameOver();
+  }
+
+  _updateRecord() {
+    record = parseInt(this.score.value);
+    localStorage.setItem("record", record);
   }
 }

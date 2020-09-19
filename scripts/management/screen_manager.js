@@ -1,12 +1,16 @@
 class ScreenManager {
   setup() {
     this.initialScreen = new InitialScreen(this.handleStartClick.bind(this));
+    this.recordDisplay = new Record();
     this.currentScreen = this.initialScreen;
     this._setGame();
   }
 
   draw() {
     this.currentScreen.draw();
+    if (this.inGame) {
+      this.recordDisplay.draw();
+    }
   }
 
   keyPressed(key) {
@@ -14,6 +18,7 @@ class ScreenManager {
   }
 
   handleStartClick() {
+    this.inGame = true;
     this.currentScreen = this.gameScreen;
     this.gameScreen.setup();
   }

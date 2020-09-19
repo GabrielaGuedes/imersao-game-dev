@@ -1,6 +1,6 @@
 class Score {
   constructor() {
-    this.score = 0;
+    this.value = 0;
   }
 
   draw() {
@@ -9,12 +9,12 @@ class Score {
 
   show() {
     textAlign(RIGHT);
-    fill(COLORS.white);
+    fill(COLORS.blue);
     textSize(FONT_SIZES.score);
-    text(parseInt(this.score), width - 30, 50);
+    text(parseInt(this.value), width - 50, 50);
   }
 
   incrementScore() {
-    this.score++;
+    this.value++;
   }
 }

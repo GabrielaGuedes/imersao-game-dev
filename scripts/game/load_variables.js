@@ -4,3 +4,4 @@ let initialScreenImage;
 let heartImage;
 let gameSound;
 let jumpSound;
+let record;

@@ -24,7 +24,7 @@ class InitialScreen {
     textFont(spongeBobFont);
     textSize(FONT_SIZES.gameTitle);
     textAlign(CENTER);
-    fill("#0457a0");
+    fill(COLORS.blue);
     text("Spongebob in", width / 2, height / 2);
     text("Jellyfishing", width / 2, height / 2 + FONT_SIZES.gameTitle);
   }

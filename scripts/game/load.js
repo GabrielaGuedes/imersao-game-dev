@@ -7,4 +7,5 @@ function preload() {
   jumpSound = loadSound(SOUNDS_PATHS.jump);
   gameOverSound = loadSound(SOUNDS_PATHS.gameOver);
   damagedSound = loadSound(SOUNDS_PATHS.damaged);
+  record = localStorage.getItem("record") || "0";
 }
