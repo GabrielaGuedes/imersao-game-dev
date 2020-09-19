@@ -4,16 +4,22 @@ class Life {
     this.initial = initial;
     this.hearts = this.initial;
 
-    this.width = 25;
-    this.height = 25;
+    this.width = 100;
+    this.height = 100;
     this.initialX = 20;
     this.y = 20;
   }
 
   draw() {
     const margin = 10;
-    for(let i = 0; i < this.hearts; i++) {
-      image(heartImage, this.initialX*(1+i) + margin*i, this.y, this.width, this.height);
+    for (let i = 0; i < this.hearts; i++) {
+      image(
+        heartImage,
+        this.initialX * (1 + i) + margin * i,
+        this.y,
+        this.width,
+        this.height
+      );
     }
   }
 
