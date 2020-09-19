@@ -19,7 +19,7 @@ class Game {
   }
 
   keyPressed(key) {
-    if (key === "ArrowUp") {
+    if (key === "ArrowUp" || key === "w") {
       this.character.jump(jumpSound);
     }
   }

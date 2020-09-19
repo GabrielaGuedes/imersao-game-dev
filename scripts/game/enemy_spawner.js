@@ -9,10 +9,10 @@ class EnemySpawner {
   }
 
   draw() {
-    this.activeEnemies.forEach(enemy => enemy.draw());
+    this.activeEnemies.forEach((enemy) => enemy.draw());
     this.timer++;
 
-    if(this.timer > this.enemyInterval) {
+    if (this.timer > this.enemyInterval) {
       this.spawnRandomEnemy();
       this._updateIntervalAndTimer();
     }
@@ -22,32 +22,35 @@ class EnemySpawner {
 
   spawnRandomEnemy() {
     if (this.inactiveEnemies.length > 0) {
-      const newEnemy = this.inactiveEnemies.splice(this._getRandomIndex(), 1)[0];
+      const newEnemy = this.inactiveEnemies.splice(
+        this._getRandomIndex(),
+        1
+      )[0];
       newEnemy.appear();
       this.activeEnemies.push(newEnemy);
     }
   }
 
   _updateIntervalAndTimer() {
-    if(this.enemyInterval > 10) {
-      this.enemyInterval -= 2; 
+    if (this.enemyInterval > 10) {
+      this.enemyInterval -= 2;
     }
     this.timer = 0;
   }
 
   _setSpeedForEnemies() {
-    this.enemies.forEach(enemy => {
-      enemy.speed = Math.random()*20 + 10;
-    })
+    this.enemies.forEach((enemy) => {
+      enemy.setSpeed(Math.random() * 20 + 15);
+    });
   }
 
   _passCrossedEnemiesFromActiveToInactive() {
-    this.activeEnemies = this.activeEnemies.filter(enemy => {
+    this.activeEnemies = this.activeEnemies.filter((enemy) => {
       if (enemy.hasCrossedScreen() && !this.inactiveEnemies.includes(enemy)) {
         this.inactiveEnemies.push(enemy);
       }
       return !enemy.hasCrossedScreen();
-    })
+    });
   }
 
   _getRandomIndex() {

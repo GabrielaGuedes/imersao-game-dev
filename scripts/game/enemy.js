@@ -19,6 +19,10 @@ class Enemy extends Animation {
     this.x = width;
   }
 
+  setSpeed(speed) {
+    this.speed = speed;
+  }
+
   hasCrossedScreen() {
     return this.x < -this.width;
   }
