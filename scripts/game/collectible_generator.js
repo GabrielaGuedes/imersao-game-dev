@@ -10,7 +10,7 @@ class CollectibleGenerator {
     this.timer++;
 
     if (this.timer > this.collectibleInterval) {
-      this.generateNewCollectible();
+      this._addNewCollectible();
       this.timer = 0;
       this._setRandomIntervalForCollectible();
     }
@@ -18,10 +18,23 @@ class CollectibleGenerator {
     this._updateAvailableCollectibles();
   }
 
-  generateNewCollectible() {
-    this.displayedCollectibles.push(
-      new Collectible(PINK_JELLYFISH_IMAGE_CONFIGS(), width)
-    );
+  _addNewCollectible() {
+    this.displayedCollectibles.push(this._generateCollectible());
+  }
+
+  _generateCollectible() {
+    if (Math.floor(Math.random() * 100) < 10) {
+      return this._specialCollectible();
+    }
+    return this._defaultCollectible();
+  }
+
+  _defaultCollectible() {
+    return new Collectible(PINK_JELLYFISH_IMAGE_CONFIGS(), width);
+  }
+
+  _specialCollectible() {
+    return new Collectible(BLUE_JELLYFISH_IMAGE_CONFIGS(), width, true);
   }
 
   _setRandomIntervalForCollectible() {

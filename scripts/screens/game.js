@@ -8,7 +8,6 @@ class Game {
     this.scenario = new Scenario(scenarioImage, GAME_CONSTANTS.scenarioSpeed);
     this.score = new Score();
     this.life = new Life(GAME_CONSTANTS.totalLife, GAME_CONSTANTS.initialLife);
-    this.collectibles = 0;
     this.character = new Character(
       CHARACTER_IMAGE_CONFIGS(),
       GAME_CONSTANTS.characterPosition
@@ -54,7 +53,8 @@ class Game {
     this.collectibleGenerator.displayedCollectibles.forEach((collectible) => {
       if (this.character.isCatching(collectible) && !collectible.collected) {
         collectible.collect();
-        this.score.incrementScore();
+        const score = collectible.special ? 5 : 1;
+        this.score.incrementScore(score);
       }
     });
   }

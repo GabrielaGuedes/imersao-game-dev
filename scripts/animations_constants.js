@@ -62,3 +62,16 @@ const PINK_JELLYFISH_IMAGE_CONFIGS = () => {
     frameColumns: 9,
   };
 };
+
+const BLUE_JELLYFISH_IMAGE_CONFIGS = () => {
+  const image = loadImage(IMAGE_PATHS.blue_jellyfish);
+  return {
+    image,
+    frames: 9,
+    width: 95,
+    height: 126,
+    spriteWidth: 95,
+    spriteHeight: 126,
+    frameColumns: 9,
+  };
+};

@@ -14,7 +14,7 @@ class Score {
     text(parseInt(this.value), width - 50, 50);
   }
 
-  incrementScore() {
-    this.value++;
+  incrementScore(score) {
+    this.value += score;
   }
 }

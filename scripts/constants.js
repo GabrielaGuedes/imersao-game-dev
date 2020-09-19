@@ -17,6 +17,7 @@ const IMAGE_PATHS = {
   squidward: "images/enemies/squidward.png",
   boat: "images/enemies/boat.png",
   pink_jellyfish: "images/collectibles/pink_jellyfish.png",
+  blue_jellyfish: "images/collectibles/blue_jellyfish.png",
   gameOver: "images/assets/game_over.png",
   heart: "images/assets/heart.png",
 };
